@@ -5,6 +5,7 @@ Our first flask application before we start do world better
 * Python3.6+
 * pip ~19.03+
 * virtualenv
+* OS Linux or Windows
 
 ### Setup 
 ``` $ pip install -r requirements.txt```
@@ -27,6 +28,7 @@ URI | Method| Description
 --- | --- | --- | 
 /users/list | GET | Show all names of users in system
 /users/delete/\<username\> | GET | Delete a user by username
+/users/add/ | POST | add a new user
 
 
 
