@@ -27,6 +27,7 @@ URI | Method| Description
 --- | --- | --- | 
 /users/list | GET | Show all names of users in system
 /users/delete/\<username\> | GET | Delete a user by username
+/users/add/ | POST | Add new user, check if exist
 
 
 
