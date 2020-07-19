@@ -11,10 +11,10 @@ storage = dict()
 # put some default users into db
 storage.update(
     {
-        "username1": {},
-        "username2": {},
-        "username3": {},
-        "username4": {}
+        "Kelly": {},
+        "Nelly": {},
+        "Shelly": {},
+        "Belly": {}
     }
 )
 
@@ -40,14 +40,31 @@ def delete_user(username):
         return 'User doesn`t exist or already deleted'
 
 
+# # add user with GET method
+# @app.route('/users/add/<username>')
+# def add_user_get(username):
+#     return_string = f'User {username} was added'
+#     if username in storage:
+#         return_string = f'User {username} was rewritten'
+#     storage[username] = {}
+#     return return_string
+
+
+# add user with POST method
 @app.route('/users/add/', methods=['GET', 'POST'])
 def add_user():
     if request.method == 'POST':
         username = request.form.get('username')
         return_string = f'User {username} was added'
+
         if username in storage:
             return_string = f'User {username} was rewritten'
-        storage[username] = {}
+
+        if username:
+            storage[username] = {}
+        else:
+            return_string = 'Put user name!'
+
         return return_string
 
     return '''<form method="POST">
