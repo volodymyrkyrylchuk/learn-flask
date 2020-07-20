@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -29,6 +29,16 @@ def user_list():
     return '<br>'.join(username_list)
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'GET':
+        return render_template('create.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        storage.update({username: {}})
+        return 'created'
+
+
 @app.route('/users/delete/<username>')
 def delete_user(username):
     old_users = storage.copy()
@@ -36,4 +46,4 @@ def delete_user(username):
     if username in old_users:
         return f'User {username} was deleted'
     else:
-        return 'User doesn`t exist or already deleted'
+        return 'User doesnt exist or already deleted'
