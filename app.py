@@ -40,17 +40,6 @@ def delete_user(username):
         return 'User doesn`t exist or already deleted'
 
 
-# My route
-@app.route('/users/add/<username>')
-def add_user_list(username):
-    new_users = storage.copy()
-    storage.update({username: {}})
-    if username in new_users:
-        return f'User {username} already in list'
-    else:
-        return f'User {username} added'
-
-
 @app.route('/add/<username>', methods=['GET'])
 def add_user(username):
     if request.method == 'GET':
