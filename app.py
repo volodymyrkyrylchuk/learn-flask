@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def new_user(name):
         return f'"User" {name} exists in the database'
     else:
         storage.setdefault(name, {})
-        return storage
+        return jsonify(storage)
 
 
 
