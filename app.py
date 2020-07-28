@@ -1,3 +1,5 @@
+# Добавляю роут добавления пользователя и вывожу словарь в виде json
+
 from flask import Flask
 from flask import jsonify
 
