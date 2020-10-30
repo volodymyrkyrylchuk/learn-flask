@@ -7,8 +7,6 @@ app = Flask(__name__)  # создаем объект app на основе кл�
 storage = dict()
 # structure of storage: key - username, value - dict(default empty) in future will contain info about current user
 
-
-# put some default users into db
 storage.update(
     {
         "username1": {},
